@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+// Прототип функції h
+double h(double x, double y, double z);
+
+int main()
+{
+    double a, b;
+
+    cout << "Enter a: ";
+    cin >> a;
+    cout << "Enter b: ";
+    cin >> b;
+
+    // Обчислення складових виразу
+    double numerator = h(a, b, 1) + h(1, a, b);
+    double denominator = 1 + h(a * a + b * b, 1, 0);
+
+    double result = numerator / denominator;
+
+    cout << fixed << setprecision(6);
+    cout << "Result = " << result << endl;
+
+    return 0;
+}
+
+// Опис функції h(x,y,z)
+double h(double x, double y, double z)
+{
+    return (x + y + z) / (x * x + y * y + z * z);
+}
